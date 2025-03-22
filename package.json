@@ -1,0 +1,26 @@
+{
+  "name": "kickertech",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "node --env-file=.env --watch -r ts-node/register src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a",
+  "dependencies": {
+    "@reduxjs/toolkit": "2.6.x",
+    "dotenv": "16.4.x",
+    "express": "4.21.x"
+  },
+  "devDependencies": {
+    "@types/express": "5.0.x",
+    "@types/node": "22.13.x",
+    "ts-node": "10.9.x",
+    "typescript": "5.8.x"
+  }
+}
