@@ -1,15 +1,25 @@
-import express, { Express, Request, Response } from "express";
+import express from "express";
 import dotenv from "dotenv";
+import { store, Store } from "./store";
+import { initDirectoryScanRouter } from "./features/directory-scan/router";
+import { scanDirectory } from "./features/directory-scan";
 
 dotenv.config();
 
-const app: Express = express();
-const port = process.env.PORT || 3000;
+async function runStartupActions(store: Store): Promise<void> {
+  console.log("Running startup actions...");
+  await store.dispatch(scanDirectory());
+}
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello world!");
-});
+(async function () {
+  const app = express();
+  const port = process.env.PORT || 3000;
 
-app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
-});
+  app.use(initDirectoryScanRouter(store));
+
+  await runStartupActions(store);
+
+  app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+  });
+})();

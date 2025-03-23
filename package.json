@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "node --env-file=.env --watch -r ts-node/register src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --config jest.config.ts"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +19,10 @@
   },
   "devDependencies": {
     "@types/express": "5.0.x",
+    "@types/jest": "^29.5.14",
     "@types/node": "22.13.x",
+    "jest": "29.7.x",
+    "ts-jest": "^29.2.6",
     "ts-node": "10.9.x",
     "typescript": "5.8.x"
   }
